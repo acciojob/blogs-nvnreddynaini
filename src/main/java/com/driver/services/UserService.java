@@ -22,9 +22,7 @@ public class UserService {
     }
 
     public void deleteUser(int userId){
-        if(userRepository3.existsById(userId)){
-            userRepository3.deleteById(userId);
-        }
+        userRepository3.deleteById(userId);
     }
 
     public User updateUser(Integer id, String password){
