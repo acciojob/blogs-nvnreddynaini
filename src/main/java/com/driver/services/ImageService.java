@@ -47,10 +47,14 @@ public class ImageService {
         Image image = imageRepository2.findById(id).get();
         String S = image.getDimensions();
         char ch[] = S.toCharArray();
-        int total_length = (ch[0]-'0')*(ch[2]-'0');
+        int t1 = (ch[0]-'0');
+        int t2 = (ch[2]-'0');
+        //int total_length = (ch[0]-'0')*(ch[2]-'0');
         String str = screenDimensions;
         char ch1[] = str.toCharArray();
-        int length = (ch1[0]-'0')*(ch1[2]-'0');
-        return total_length / length;
+        int l1 = (ch1[0]-'0');
+        int l2 = (ch1[2]-'0');
+        //int length = (ch1[0]-'0')*(ch1[2]-'0');
+        return ((t1/l1)*(t2/l2));
     }
 }
