@@ -24,15 +24,21 @@ public class BlogService {
     public Blog createAndReturnBlog(Integer userId, String title, String content) {
         //create a blog at the current time
 
-        Blog blog = Blog.builder().title(title).content(content).build();
+        Blog blog = Blog.builder().title(title).content(content).pubDate(new Date()).build();
 
         User user = userRepository1.findById(userId).get();
 
         blog.setUser(user);
 
+        //Because of Bi-directional Mapping
+        //Updating the user info and changing its blogs
+        List<Blog> currentBlogs = user.getBlogList();
+        currentBlogs.add(blog);
+        user.setBlogList(currentBlogs);
+
         userRepository1.save(user);
 
-        blogRepository1.save(blog);
+        //blogRepository1.save(blog);
 
         return blog;
 

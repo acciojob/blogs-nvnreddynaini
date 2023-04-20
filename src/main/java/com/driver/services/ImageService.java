@@ -23,9 +23,16 @@ public class ImageService {
 
         image.setBlog(blog);
 
+        //Because of Bi-directional Mapping
+        //Updating the blog info and changing its images
+        List<Image> currentImages = blog.getImageList();
+        currentImages.add(image);
+        blog.setImageList(currentImages);
+
+
         blogRepository2.save(blog);
 
-        imageRepository2.save(image);
+        //imageRepository2.save(image);
 
         return image;
 
