@@ -28,7 +28,7 @@ public class Blog {
 
     @CreationTimestamp
     @Temporal(value = TemporalType.DATE)
-    private Date blogDate;
+    private Date pubDate;
 
     @ManyToOne
     @JoinColumn
