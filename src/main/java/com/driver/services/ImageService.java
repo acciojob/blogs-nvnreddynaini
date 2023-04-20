@@ -25,6 +25,8 @@ public class ImageService {
 
         blogRepository2.save(blog);
 
+        imageRepository2.save(image);
+
         return image;
 
     }

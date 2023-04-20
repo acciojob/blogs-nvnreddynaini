@@ -15,6 +15,8 @@ public class UserService {
 
     public User createUser(String username, String password){
         User user = User.builder().username(username).password(password).build();
+        user.setFirstName("test");
+        user.setLastName("test");
         userRepository3.save(user);
         return user;
     }
@@ -27,8 +29,11 @@ public class UserService {
 
     public User updateUser(Integer id, String password){
 
-        User user = User.builder().id(id).build();
+        User user = userRepository3.findById(id).get();
+
         user.setPassword(password);
+
+        userRepository3.save(user);
 
         return user;
     }
