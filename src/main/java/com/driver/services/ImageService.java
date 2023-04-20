@@ -70,6 +70,6 @@ public class ImageService {
         }
         ys = num;
 
-        return ((xi/xs)*(yi/ys));
+        return ((xs/xi)*(ys/yi));
     }
 }
